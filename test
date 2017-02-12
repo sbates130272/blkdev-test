@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# A simple script to generate a local file and use a loop device to
+# turn it into a block device. We can then use this in our c program to
+# make sure we direct block access is doing what we think.
+#
+# Note this script almost certainly needs to be run as root.
+
+FILE=blkdev-test
+LOOP=/dev/loop0
+
+dd if=/dev/urandom of=${FILE} bs=1k count=1k
+loset ${LOOP} ${FILE}
+lsblk
+
