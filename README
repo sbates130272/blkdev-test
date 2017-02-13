@@ -1,0 +1,26 @@
+blkdev-test
+-----------
+
+This repo contains some simple tools for playing around with O_DIRECT
+access to block devices.
+
+block.c
+-------
+
+A simple C program to open a block device, get certain properties and
+perform some IO against it. A few notes:
+
+1. The stat property st_size is NOT a good way of getting the capacity
+of the block device. Use seek instead.
+
+test
+----
+
+A wee shell script to create a small random file, attach that to a
+spare loop device and then do some tests against it.
+
+Other Notes
+-----------
+
+1. You might find it interest to run test while also running blktrace
+on the block device. 
