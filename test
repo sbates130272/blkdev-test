@@ -9,8 +9,10 @@
 FILE=blkdev-test
 LOOP=/dev/loop0
 
-rm -rf $FILE}
-dd if=/dev/urandom of=${FILE} bs=1k count=1k
-losetup ${LOOP} ${FILE}
+losetup -D
+rm -rf $FILE
+dd if=/dev/urandom of=$FILE bs=1k count=1k
+losetup $LOOP $FILE
 lsblk
-
+make
+./block $LOOP
