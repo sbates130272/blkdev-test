@@ -22,5 +22,5 @@ spare loop device and then do some tests against it.
 Other Notes
 -----------
 
-1. You might find it interest to run test while also running blktrace
+You might find it interesting to run test while also running blktrace
 on the block device. 
